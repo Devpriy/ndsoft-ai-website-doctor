@@ -1,0 +1,25 @@
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Secrets/local config
+.env
+.env.*
+*.log
+
+# Dependencies/build
+vendor/
+node_modules/
+build/
+dist/
+
+# Release artifacts
+*.zip
+*.bundle
+*.sha256
+
+# Tests/cache
+phpunit.xml
+.phpunit.result.cache

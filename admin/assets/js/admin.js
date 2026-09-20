@@ -1,0 +1,1 @@
+document.addEventListener('click',function(e){var b=e.target.closest('[data-ndsoft-copy-report]');if(!b)return;var t=document.getElementById('ndsoft-aiwd-report');if(!t)return;navigator.clipboard.writeText(t.value).then(function(){var old=b.textContent;b.textContent='Copied';setTimeout(function(){b.textContent=old;},1200);});});

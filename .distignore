@@ -1,0 +1,11 @@
+/.git
+/.github
+/.vscode
+/tests
+/docs/DEVELOPMENT.md
+/composer.json
+/phpunit.xml.dist
+/.gitignore
+/.distignore
+*.bundle
+*.sha256
