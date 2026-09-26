@@ -5,11 +5,12 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 final class AI_Client {
     /**
-     * No remote AI request is allowed in v0.1.0.
+     * Remote AI is intentionally not bundled with core v1.0. The plugin's
+     * useful diagnosis is generated locally by Diagnosis_Engine.
      *
      * @return \WP_Error
      */
     public function diagnose() {
-        return new \WP_Error( 'ndsoft_aiwd_ai_disabled', __( 'AI diagnosis is not enabled in this foundation release.', 'ndsoft-ai-website-doctor' ) );
+        return new \WP_Error( 'ndsoft_aiwd_cloud_ai_unavailable', __( 'Remote AI is not connected in this core build. Local diagnosis remains available without an API key.', 'ndsoft-ai-website-doctor' ) );
     }
 }

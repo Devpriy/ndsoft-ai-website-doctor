@@ -2,10 +2,12 @@
 /.github
 /.vscode
 /tests
-/docs/DEVELOPMENT.md
+/docs
+/tools
 /composer.json
 /phpunit.xml.dist
 /.gitignore
 /.distignore
 *.bundle
 *.sha256
+/dist

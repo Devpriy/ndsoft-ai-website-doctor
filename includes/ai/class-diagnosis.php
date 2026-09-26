@@ -4,8 +4,6 @@ namespace NDsoft\AIWebsiteDoctor\AI;
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 final class Diagnosis {
-    /** @var AI_Client */
-    private $client;
-    public function __construct() { $this->client = new AI_Client(); }
     public function available() { return false; }
+    public function label() { return __( 'Optional cloud AI is not connected', 'ndsoft-ai-website-doctor' ); }
 }

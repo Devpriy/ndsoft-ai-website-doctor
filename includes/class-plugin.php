@@ -21,5 +21,8 @@ final class Plugin {
         load_plugin_textdomain( 'ndsoft-ai-website-doctor', false, dirname( NDSOFT_AIWD_BASENAME ) . '/languages' );
         if ( is_admin() ) { ( new Admin() )->register(); }
         ( new REST_API() )->register();
+        if ( get_option( 'ndsoft_aiwd_version' ) !== NDSOFT_AIWD_VERSION ) {
+            update_option( 'ndsoft_aiwd_version', NDSOFT_AIWD_VERSION, false );
+        }
     }
 }

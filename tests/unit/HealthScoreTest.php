@@ -1,2 +1,2 @@
 <?php
-// Placeholder for unit coverage of NDsoft\AIWebsiteDoctor\Health\Health_Score.
+// Test scaffold for NDsoft\\AIWebsiteDoctor\\Health\\Health_Score.

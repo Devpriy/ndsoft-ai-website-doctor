@@ -1,2 +1,2 @@
 <?php
-// Future PHPUnit/WordPress test bootstrap. Intentionally minimal in v0.1.0.
+// WordPress/PHPUnit bootstrap placeholder for future automated integration tests.

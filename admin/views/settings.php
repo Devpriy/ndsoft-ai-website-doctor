@@ -1,4 +1,14 @@
-<?php
-if ( ! defined( 'ABSPATH' ) ) { exit; }
-?>
-<div class="wrap"><h1><?php esc_html_e( 'Website Doctor Settings', 'ndsoft-ai-website-doctor' ); ?></h1><p><?php esc_html_e( 'Settings will be introduced only when they are necessary. Version 0.1.0 is intentionally zero-configuration.', 'ndsoft-ai-website-doctor' ); ?></p></div>
+<?php if ( ! defined( 'ABSPATH' ) ) { exit; } ?>
+<div class="wrap ndsoft-aiwd-wrap">
+    <div class="ndsoft-aiwd-header"><div><h1><?php esc_html_e( 'Website Doctor Settings', 'ndsoft-ai-website-doctor' ); ?></h1><p><?php esc_html_e( 'Defaults are designed for non-technical users. You can reduce deeper checks if a host blocks them.', 'ndsoft-ai-website-doctor' ); ?></p></div></div>
+    <?php if ( isset( $_GET['saved'] ) ) : ?><div class="notice notice-success is-dismissible"><p><?php esc_html_e( 'Settings saved.', 'ndsoft-ai-website-doctor' ); ?></p></div><?php endif; ?>
+    <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" class="ndsoft-aiwd-card ndsoft-aiwd-settings-form"><input type="hidden" name="action" value="ndsoft_aiwd_save_settings"><?php wp_nonce_field( 'ndsoft_aiwd_save_settings' ); ?>
+        <table class="form-table" role="presentation"><tbody>
+            <tr><th scope="row"><?php esc_html_e( 'Connectivity tests', 'ndsoft-ai-website-doctor' ); ?></th><td><label><input type="checkbox" name="ndsoft_aiwd[connectivity_tests]" value="1" <?php checked( ! empty( $settings['connectivity_tests'] ) ); ?>> <?php esc_html_e( 'Test REST API and loopback requests during scans', 'ndsoft-ai-website-doctor' ); ?></label><p class="description"><?php esc_html_e( 'Uses WordPress core Site Health logic and may make requests from the site back to itself.', 'ndsoft-ai-website-doctor' ); ?></p></td></tr>
+            <tr><th scope="row"><?php esc_html_e( 'Error-log analysis', 'ndsoft-ai-website-doctor' ); ?></th><td><label><input type="checkbox" name="ndsoft_aiwd[error_log_analysis]" value="1" <?php checked( ! empty( $settings['error_log_analysis'] ) ); ?>> <?php esc_html_e( 'Analyze a bounded recent sample when WP_DEBUG_LOG is enabled', 'ndsoft-ai-website-doctor' ); ?></label><p class="description"><?php esc_html_e( 'Raw log lines are not stored in Website Doctor scan history.', 'ndsoft-ai-website-doctor' ); ?></p></td></tr>
+            <tr><th scope="row"><label for="ndsoft-aiwd-history-limit"><?php esc_html_e( 'History entries', 'ndsoft-ai-website-doctor' ); ?></label></th><td><input id="ndsoft-aiwd-history-limit" type="number" min="3" max="30" name="ndsoft_aiwd[history_limit]" value="<?php echo esc_attr( (int) $settings['history_limit'] ); ?>"><p class="description"><?php esc_html_e( 'Keep between 3 and 30 scan snapshots.', 'ndsoft-ai-website-doctor' ); ?></p></td></tr>
+            <tr><th scope="row"><?php esc_html_e( 'Developer details', 'ndsoft-ai-website-doctor' ); ?></th><td><label><input type="checkbox" name="ndsoft_aiwd[technical_details]" value="1" <?php checked( ! empty( $settings['technical_details'] ) ); ?>> <?php esc_html_e( 'Show extra metadata in scan results', 'ndsoft-ai-website-doctor' ); ?></label></td></tr>
+        </tbody></table><?php submit_button( __( 'Save Settings', 'ndsoft-ai-website-doctor' ) ); ?>
+    </form>
+    <section class="ndsoft-aiwd-card ndsoft-aiwd-privacy"><h2><?php esc_html_e( 'Remote AI', 'ndsoft-ai-website-doctor' ); ?></h2><p><?php esc_html_e( 'Remote AI is not enabled in this core build. No OpenAI API key, ChatGPT subscription, or separate AI purchase is required to use the diagnostic features above.', 'ndsoft-ai-website-doctor' ); ?></p></section>
+</div>
